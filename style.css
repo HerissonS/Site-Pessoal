@@ -4,6 +4,7 @@ html{
 
 body{
     background-color:antiquewhite;
+    font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
 .photo {
@@ -16,6 +17,10 @@ body{
     color:black
 }
 
+#title{
+    text-transform: uppercase;
+}
+
 .post_title {
     font-size: 16px;
     font-style: italic;
@@ -26,4 +31,14 @@ body{
     padding: 10px;
     border: 3px solid black;
     border-radius: 15px;
+}
+
+#lista_contatos{
+    list-style-type: none;
+    padding: 0px;
+}
+
+#lista_contatos li a{
+    color:black;
+    text-decoration: none;
 }
