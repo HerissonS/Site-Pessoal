@@ -1,5 +1,6 @@
 html{
-    margin: 10px;
+    max-width: 900px;
+    margin: auto;
 }
 
 body{
@@ -11,6 +12,8 @@ body{
     margin-bottom: 15px;
     border-radius: 50%;
     border: 1px solid black;
+    display: block;
+    margin: 0px auto;
 }
 
 #title, .subtitle, .post_title {
@@ -19,6 +22,7 @@ body{
 
 #title{
     text-transform: uppercase;
+    text-align: center;
 }
 
 .post_title {
