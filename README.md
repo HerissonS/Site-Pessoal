@@ -57,7 +57,8 @@ O projeto **não** utiliza frameworks JavaScript, build tools ou dependências d
 Site-Pessoal/
 ├── assets/
 │   └── img/
-│       └── favicon.svg
+│       ├── favicon.svg
+│       └── herisson.png
 ├── bootstrap/
 │   ├── css/
 │   └── js/
@@ -90,14 +91,15 @@ Novos repositórios e projetos serão adicionados à medida que forem organizado
 
 ## Publicação
 
-O projeto foi **preparado tecnicamente** para publicação futura através do **GitHub Pages**:
+O site está publicado através do **GitHub Pages** e pode ser acessado em:
+
+**https://herissons.github.io/Site-Pessoal/**
+
+O projeto foi preparado tecnicamente para funcionar em subdiretório do GitHub Pages:
 
 - site totalmente estático;
-- caminhos relativos compatíveis com subdiretórios (ex.: `https://usuario.github.io/Site-Pessoal/`);
 - nenhuma dependência de backend, banco de dados ou processamento no servidor;
 - nenhuma credencial ou dado sensível versionado.
-
-A publicação propriamente dita (ativação do GitHub Pages) ainda não foi realizada. Este README será atualizado com a URL oficial quando o site estiver publicado.
 
 ## Autor
 
