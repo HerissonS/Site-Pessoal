@@ -1,65 +1,619 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 
 <head>
     <meta charset="utf-8">
-    <title>Hérisson Silva</title>
-    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hérisson Silva | Cloud, DevOps e Infraestrutura</title>
+    <meta name="description"
+        content="Portfólio de Hérisson Silva, profissional de TI atuante em Cloud, DevOps, Infraestrutura e Suporte. Conheça minha trajetória, competências, projetos e certificações.">
+    <meta name="author" content="Hérisson Silva">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:title" content="Hérisson Silva | Cloud, DevOps e Infraestrutura">
+    <meta property="og:description"
+        content="Portfólio profissional de Hérisson Silva — Cloud, DevOps, Infraestrutura e Suporte.">
+
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
-    <header>
-        <h1 id="title">Hérisson Silva</h1>
-    </header>
+<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="120">
 
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="#">
-            <img src="https://media-exp1.licdn.com/dms/image/C4D03AQH4sU1yJkzH6A/profile-displayphoto-shrink_800_800/0/1648088572474?e=1669852800&v=beta&t=fkZaC5my4K4ZHK18Q64H2pby0Br2kZONSXW7Y0qHQ4k"
-                alt="Foto de Hérisson Silva" class="photo">
-        </a>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
 
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#posts">Posts</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://www.linkedin.com/in/herisson-silva-7275a0187/"
-                        target="_blank">LinkedIn</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://github.com/HerissonS" target="_blank">GitHub</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="mailto:antonioherisson@gmail.com" target="_blank"> Email</a>
-                </li>
-            </ul>
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav" aria-label="Navegação principal">
+        <div class="container">
+            <a class="navbar-brand" href="#inicio">
+                <span class="brand-mark" aria-hidden="true">HS</span>
+                <span class="brand-text">Hérisson<span class="brand-accent">Silva</span></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+                aria-controls="navMenu" aria-expanded="false" aria-label="Abrir menu de navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experiencia">Experiência</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#competencias">Competências</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projetos">Projetos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#formacao">Formação</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 
-    <section id="posts">
-        <h2>Posts</h2>
-        <article class="post">
-            <h3 class="post_title">Sobre mim</h3>
-            <p>
-                Sou formado em Redes de Computadores na Faculdade CDL, possuo a certificação AWS Certified Cloud
-                Practitioner e realizei o Programa de Especialização em AWS pela Cloud Treinamentos.
-                Possuo experiência de aproximadamente 6 anos, incluindo trabalhos autônomos, na área de suporte e
-                atendimento ao cliente de forma presencial e remota. Possuo conhecimentos em Cloud Computing, AWS,
-                Mikrotik, Terminal Linux, monitoramento de rede, configuração de roteadores residenciais, formatação de
-                computadores, dentre outros.</br>
+    <main id="conteudo">
 
-                </br>Você pode ver meu perfil completo no LinkedIn clicando <a href= https://www.linkedin.com/in/herisson-silva-7275a0187/ target="blank">aqui</a>
- <a href=https://www.linkedin.com/in/herisson-silva-7275a0187/
-                    target="blank">aqui</a>
-            </p>
-        </article>
-    </section>
+        <section class="hero" id="inicio">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-8">
+                        <span class="eyebrow">Portfólio profissional</span>
+                        <h1 class="hero-title">Hérisson Silva</h1>
+                        <p class="hero-tagline">Cloud&nbsp;|&nbsp;DevOps&nbsp;|&nbsp;Infraestrutura&nbsp;|&nbsp;Suporte</p>
+                        <p class="hero-lead">
+                            Profissional de TI em atuação desde 2016, com trajetória em suporte técnico, redes e
+                            infraestrutura. Hoje atuo com Linux, containers, automação e observabilidade,
+                            direcionando minha evolução profissional para Cloud e DevOps.
+                        </p>
+                        <ul class="hero-tech" aria-label="Principais tecnologias">
+                            <li>Linux</li>
+                            <li>Docker</li>
+                            <li>AWS</li>
+                            <li>Zabbix</li>
+                            <li>Grafana</li>
+                            <li>CI/CD</li>
+                        </ul>
+                        <div class="hero-actions">
+                            <a href="#projetos" class="btn btn-primary btn-hero">Ver projetos</a>
+                            <a href="https://github.com/HerissonS" target="_blank" rel="noopener noreferrer"
+                                class="btn btn-outline-light btn-hero">
+                                <svg aria-hidden="true" viewBox="0 0 24 24" class="btn-icon">
+                                    <path fill="currentColor"
+                                        d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                                </svg>
+                                GitHub
+                            </a>
+                            <a href="https://www.linkedin.com/in/herisson-silva-7275a0187/" target="_blank"
+                                rel="noopener noreferrer" class="btn btn-outline-light btn-hero">
+                                <svg aria-hidden="true" viewBox="0 0 24 24" class="btn-icon">
+                                    <path fill="currentColor"
+                                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                </svg>
+                                LinkedIn
+                            </a>
+                            <a href="mailto:antonioherisson@gmail.com" class="btn btn-outline-light btn-hero">
+                                <svg aria-hidden="true" viewBox="0 0 24 24" class="btn-icon">
+                                    <path fill="currentColor"
+                                        d="M1.5 4h21a1.5 1.5 0 0 1 1.5 1.5v13a1.5 1.5 0 0 1-1.5 1.5h-21A1.5 1.5 0 0 1 0 18.5v-13A1.5 1.5 0 0 1 1.5 4zm0 2.5v12h21v-12l-8.33 6.94a1.5 1.5 0 0 1-1.55.12L1.5 6.5zm3.66.5l6 5-6 5-.16-10z" />
+                                </svg>
+                                Entrar em contato
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="hero-photo">
+                            <img src="assets/img/herisson.png" alt="Foto de Hérisson Silva" width="800" height="800">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <footer>
-        <p class="container-fluid text-center desenvolvido">Desenvolvido por Hérisson Silva</p>
+        <section class="section" id="sobre">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="eyebrow">Sobre mim</span>
+                    <h2 class="section-title">Cloud e DevOps com base sólida em infraestrutura, Linux e redes</h2>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-9">
+                        <div class="card about-card">
+                            <p>
+                                Minha atuação em tecnologia está direcionada a Cloud e DevOps, com uma base sólida em
+                                infraestrutura, Linux e redes. Gosto de entender como os ambientes funcionam, resolver
+                                problemas e, principalmente, automatizar processos para torná-los mais eficientes e
+                                confiáveis.
+                            </p>
+                            <p>
+                                Tenho experiência prática com AWS, Linux, Docker, Zabbix e Grafana, além de projetos
+                                envolvendo CI/CD, automação e infraestrutura em Cloud.
+                            </p>
+                            <p>
+                                Entre os projetos que mais representam essa evolução estão a implantação de Zabbix e
+                                Grafana para monitoramento e observabilidade, o <strong>HSAgendamentos</strong> —
+                                projeto freelancer desenvolvido e operado com Docker, Nginx, MariaDB e APIs — e a
+                                implantação de Jenkins para automatizar o deploy de uma aplicação a partir do GitHub.
+                                Também venho aplicando práticas de segurança e análise de vulnerabilidades com
+                                ferramentas como Trivy.
+                            </p>
+                            <p>
+                                Sou formado em Redes de Computadores, pós-graduado em Cloud Computing e atualmente em
+                                especialização em Segurança Cibernética com foco em DevOps. Possuo a certificação AWS
+                                Certified Cloud Practitioner e estou me preparando para a AWS Solutions Architect –
+                                Associate, aprofundando meus conhecimentos em arquitetura e serviços AWS.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt" id="experiencia">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="eyebrow">Trajetória</span>
+                    <h2 class="section-title">Experiência profissional</h2>
+                    <p class="section-subtitle">Atuação desde 2016 em suporte, redes e infraestrutura, evoluindo para
+                        Linux, containers, automação e observabilidade.</p>
+                </div>
+
+                <div class="timeline">
+                    <article class="timeline-item">
+                        <div class="timeline-marker" aria-hidden="true"></div>
+                        <div class="card job-card">
+                            <div class="d-flex flex-wrap align-items-start justify-content-between gap-2">
+                                <div>
+                                    <h3 class="job-company">Atlanta Tecnologia da Informação</h3>
+                                    <p class="job-role">Analista de Suporte</p>
+                                </div>
+                                <span class="job-period">Abr/2024 — atualmente</span>
+                            </div>
+                            <p class="job-summary">
+                                Atuação com administração, configuração e manutenção de soluções de monitoramento e
+                                observabilidade com Zabbix e Grafana — configurando hosts, templates, triggers e alertas
+                                integrados ao Telegram e criando dashboards para acompanhar infraestrutura, serviços e
+                                indicadores operacionais. Administração de ambientes Docker (atualização, recriação e
+                                gestão de containers, análise de logs e configurações) e suporte e troubleshooting em
+                                ambientes Linux via SSH. Também atuo no suporte à aplicação própria da empresa e aos
+                                serviços executados em containers, na resolução de incidentes de alta complexidade em
+                                redes, servidores e infraestrutura, no desenvolvimento de scripts de automação de tarefas
+                                operacionais e na manutenção de integrações com Chatwoot, Evolution API e n8n, além de
+                                documentação técnica, acompanhamento de SLA e indicadores e apoio às equipes internas e
+                                de campo.
+                            </p>
+                            <ul class="job-tags" aria-label="Pontos de destaque">
+                                <li>Zabbix</li>
+                                <li>Grafana</li>
+                                <li>Observabilidade</li>
+                                <li>Monitoramento</li>
+                                <li>Templates e triggers</li>
+                                <li>Alertas no Telegram</li>
+                                <li>Dashboards</li>
+                                <li>Docker</li>
+                                <li>Docker Compose</li>
+                                <li>Linux</li>
+                                <li>SSH</li>
+                                <li>Troubleshooting</li>
+                                <li>Redes</li>
+                                <li>Servidores</li>
+                                <li>Infraestrutura</li>
+                                <li>Análise de logs</li>
+                                <li>Automação de tarefas</li>
+                                <li>Suporte de aplicações</li>
+                                <li>Chatwoot</li>
+                                <li>Evolution API</li>
+                                <li>n8n</li>
+                                <li>Documentação técnica</li>
+                                <li>SLA e indicadores</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="timeline-marker" aria-hidden="true"></div>
+                        <div class="card job-card">
+                            <div class="d-flex flex-wrap align-items-start justify-content-between gap-2">
+                                <div>
+                                    <h3 class="job-company">Atlanta Tecnologia da Informação</h3>
+                                    <p class="job-role">Suporte Técnico</p>
+                                </div>
+                                <span class="job-period">Mar/2023 — Abr/2024</span>
+                            </div>
+                            <p class="job-summary">
+                                Suporte técnico e atendimento às equipes de campo, com análise, diagnóstico e resolução
+                                de incidentes de baixa e média complexidade. Diagnóstico e troubleshooting de problemas
+                                de infraestrutura, conectividade e serviços, registro e acompanhamento de chamados
+                                técnicos e apoio à manutenção e ao funcionamento da infraestrutura e dos serviços.
+                            </p>
+                            <ul class="job-tags" aria-label="Pontos de destaque">
+                                <li>Suporte técnico</li>
+                                <li>Troubleshooting</li>
+                                <li>Infraestrutura</li>
+                                <li>Conectividade</li>
+                                <li>Incidentes</li>
+                                <li>Chamados técnicos</li>
+                                <li>Equipes de campo</li>
+                                <li>Verificações técnicas</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="timeline-marker" aria-hidden="true"></div>
+                        <div class="card job-card">
+                            <div class="d-flex flex-wrap align-items-start justify-content-between gap-2">
+                                <div>
+                                    <h3 class="job-company">Multiplay Telecom</h3>
+                                    <p class="job-role">Assistente Técnico Backoffice</p>
+                                </div>
+                                <span class="job-period">Set/2020 — Mar/2023</span>
+                            </div>
+                            <p class="job-summary">
+                                Atuação como suporte de segundo nível (N2) no diagnóstico, troubleshooting e resolução de
+                                incidentes de Internet, telefonia, conectividade e serviços de telecomunicações.
+                                Monitoramento com Zabbix de links dedicados de clientes corporativos e da infraestrutura
+                                de rede, identificação de falhas e incidentes massivos com escalonamento para NOC e Rede
+                                Externa, atendimento técnico ativo a clientes, apoio a técnicos de campo e resolução de
+                                incidentes de maior complexidade.
+                            </p>
+                            <ul class="job-tags" aria-label="Pontos de destaque">
+                                <li>Suporte N2</li>
+                                <li>Troubleshooting</li>
+                                <li>Internet e telefonia</li>
+                                <li>Conectividade</li>
+                                <li>Clientes corporativos</li>
+                                <li>Monitoramento de links</li>
+                                <li>Zabbix</li>
+                                <li>Infraestrutura de rede</li>
+                                <li>Incidentes massivos</li>
+                                <li>NOC</li>
+                                <li>Rede Externa</li>
+                                <li>Suporte a campo</li>
+                            </ul>
+                            <p class="job-result">Resultado: atuação no suporte N2 e no monitoramento proativo da rede com
+                                Zabbix, contribuindo para a identificação de indisponibilidades, o diagnóstico de
+                                incidentes e o direcionamento das ocorrências às equipes responsáveis — com mais
+                                agilidade no tratamento de falhas e no restabelecimento dos serviços.</p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="timeline-marker" aria-hidden="true"></div>
+                        <div class="card job-card">
+                            <div class="d-flex flex-wrap align-items-start justify-content-between gap-2">
+                                <div>
+                                    <h3 class="job-company">Multiplay Telecom</h3>
+                                    <p class="job-role">Atendente Suporte Técnico</p>
+                                </div>
+                                <span class="job-period">Nov/2018 — Set/2020</span>
+                            </div>
+                            <p class="job-summary">
+                                Troubleshooting de conectividade e serviços com verificações e testes remotos, análise e
+                                diagnóstico de incidentes e falhas massivas de rede, registro, triagem e escalonamento de
+                                chamados para o Suporte N2, abertura de chamados para equipes de campo e apoio técnico aos
+                                demais atendentes da equipe.
+                            </p>
+                            <ul class="job-tags" aria-label="Pontos de destaque">
+                                <li>Troubleshooting</li>
+                                <li>Conectividade</li>
+                                <li>Análise de incidentes</li>
+                                <li>Falhas massivas</li>
+                                <li>Chamados técnicos</li>
+                                <li>Escalonamento N2</li>
+                                <li>Suporte remoto</li>
+                                <li>Apoio à equipe</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="timeline-marker" aria-hidden="true"></div>
+                        <div class="card job-card">
+                            <div class="d-flex flex-wrap align-items-start justify-content-between gap-2">
+                                <div>
+                                    <h3 class="job-company">Ideia Telecom</h3>
+                                    <p class="job-role">Assistente de TI</p>
+                                </div>
+                                <span class="job-period">Out/2017 — Mai/2018</span>
+                            </div>
+                            <p class="job-summary">
+                                Suporte técnico a clientes de serviços de Internet, diagnóstico e troubleshooting de
+                                conectividade, análise e diagnóstico de incidentes e falhas de rede, triagem e
+                                escalonamento de ocorrências para NOC, Rede Externa ou campo, registro e acompanhamento
+                                de incidentes e apoio aos profissionais de campo durante os atendimentos.
+                            </p>
+                            <ul class="job-tags" aria-label="Pontos de destaque">
+                                <li>Suporte técnico</li>
+                                <li>Redes</li>
+                                <li>Conectividade</li>
+                                <li>Troubleshooting</li>
+                                <li>Incidentes</li>
+                                <li>NOC</li>
+                                <li>Rede Externa</li>
+                                <li>Suporte a campo</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="impacto">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="eyebrow">Impacto</span>
+                    <h2 class="section-title">Resultado real na operação</h2>
+                </div>
+                <div class="impact-card">
+                    <div class="row g-4 align-items-center">
+                        <div class="col-lg-7">
+                            <h3 class="impact-title">Solução de monitoramento e observabilidade com Zabbix e Grafana</h3>
+                            <p class="impact-text">
+                                Implementei monitoramento centralizado com Zabbix e Grafana, com alertas automatizados e
+                                dashboards operacionais. Antes, a identificação de indisponibilidades dependia de
+                                verificações manuais e podia levar 3 horas ou mais; com a solução, o tempo passou a ser
+                                de aproximadamente 30 minutos a 1 hora.
+                            </p>
+                            <ul class="impact-list" aria-label="Com o que a solução contribuiu">
+                                <li>Monitoramento centralizado da infraestrutura</li>
+                                <li>Alertas automatizados de indisponibilidade</li>
+                                <li>Dashboards operacionais para acompanhamento</li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="impact-stats">
+                                <div class="impact-stat">
+                                    <span class="impact-stat-value">3h+</span>
+                                    <span class="impact-stat-label">antes: identificação manual</span>
+                                </div>
+                                <p class="impact-arrow" aria-hidden="true">&darr;</p>
+                                <div class="impact-stat impact-stat-highlight">
+                                    <span class="impact-stat-value">30min – 1h</span>
+                                    <span class="impact-stat-label">após: detecção de falhas</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt" id="competencias">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="eyebrow">Stack</span>
+                    <h2 class="section-title">Competências</h2>
+                    <p class="section-subtitle">Organizadas por nível de conhecimento, de acordo com minha atuação
+                        profissional.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card competence-card">
+                            <h3 class="competence-level">Avançado</h3>
+                            <ul class="competence-list">
+                                <li>Redes de Computadores</li>
+                                <li>Troubleshooting</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card competence-card">
+                            <h3 class="competence-level">Intermediário</h3>
+                            <ul class="competence-list">
+                                <li>Amazon Web Services (AWS)</li>
+                                <li>Cloud Computing</li>
+                                <li>DevOps</li>
+                                <li>Linux</li>
+                                <li>Docker</li>
+                                <li>Docker Compose</li>
+                                <li>CI/CD</li>
+                                <li>Git</li>
+                                <li>GitHub</li>
+                                <li>Observabilidade</li>
+                                <li>Zabbix</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card competence-card">
+                            <h3 class="competence-level">Básico / Intermediário</h3>
+                            <ul class="competence-list">
+                                <li>Jenkins</li>
+                                <li>Grafana</li>
+                                <li>Cibersegurança</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card competence-card">
+                            <h3 class="competence-level">Básico</h3>
+                            <ul class="competence-list">
+                                <li>Kubernetes</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="projetos">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="eyebrow">Portfólio</span>
+                    <h2 class="section-title">Projetos</h2>
+                    <p class="section-subtitle">Trabalhos que representam minha atuação prática com infraestrutura,
+                        automação e Cloud. Novos repositórios serão adicionados conforme forem organizados no GitHub.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <article class="card project-card h-100">
+                            <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-2">
+                                <span class="project-category">Projeto Freelancer</span>
+                                <span class="project-year">Atual</span>
+                            </div>
+                            <h3 class="project-title">HSAgendamentos</h3>
+                            <p class="project-description">
+                                Projeto freelancer no qual atuei no projeto e na implementação do ambiente, administração
+                                de containers e serviços, deploy e atualização, com Nginx na infraestrutura e base em
+                                Docker Compose e MariaDB. Incluiu integração com APIs, monitoramento, troubleshooting e
+                                resolução de incidentes, além de análise de vulnerabilidades com Trivy.
+                            </p>
+                            <ul class="job-tags" aria-label="Tecnologias do projeto HSAgendamentos">
+                                <li>Docker</li>
+                                <li>Docker Compose</li>
+                                <li>Linux</li>
+                                <li>Nginx</li>
+                                <li>MariaDB</li>
+                                <li>APIs</li>
+                                <li>Trivy</li>
+                            </ul>
+                            <div class="project-links" aria-label="Links do projeto HSAgendamentos"></div>
+                        </article>
+                    </div>
+                    <div class="col-lg-6">
+                        <article class="card project-card h-100">
+                            <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-2">
+                                <span class="project-category">Projeto Freelancer / Pessoal</span>
+                                <span class="project-year">Atual</span>
+                            </div>
+                            <h3 class="project-title">Automação de deploy com Jenkins</h3>
+                            <p class="project-description">
+                                Criação e manutenção de pipeline CI/CD com Jenkins integrado ao GitHub para automatizar a
+                                atualização e o deploy de uma aplicação em servidor Linux. O pipeline obtém o código
+                                automaticamente, executa o deploy por Shell Script e reduz a intervenção manual no
+                                processo.
+                            </p>
+                            <ul class="job-tags" aria-label="Tecnologias do projeto de automação de deploy">
+                                <li>Jenkins</li>
+                                <li>GitHub</li>
+                                <li>Linux</li>
+                                <li>Shell Script</li>
+                            </ul>
+                            <div class="project-links" aria-label="Links do projeto de automação de deploy"></div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt" id="formacao">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="eyebrow">Formação</span>
+                    <h2 class="section-title">Formação e certificações</h2>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <h3 class="block-title">Formação acadêmica</h3>
+                        <ul class="edu-list">
+                            <li class="card edu-item">
+                                <h4 class="edu-name">Especialização em Segurança Cibernética com Foco em DevOps</h4>
+                                <p class="edu-school">UNIFOR</p>
+                                <p class="edu-meta">Em andamento · conclusão prevista em <strong>07/2027</strong></p>
+                            </li>
+                            <li class="card edu-item">
+                                <h4 class="edu-name">Pós-graduação em Cloud Computing</h4>
+                                <p class="edu-school">Cloud Treinamentos</p>
+                                <p class="edu-meta">Concluída em <strong>09/2024</strong></p>
+                            </li>
+                            <li class="card edu-item">
+                                <h4 class="edu-name">Tecnólogo em Redes de Computadores</h4>
+                                <p class="edu-school">Faculdade CDL</p>
+                                <p class="edu-meta">Concluído em <strong>08/2021</strong></p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6">
+                        <h3 class="block-title">Certificações e cursos</h3>
+                        <ul class="edu-list">
+                            <li class="card edu-item edu-item-highlight">
+                                <span class="cert-badge">Certificação AWS</span>
+                                <h4 class="edu-name">AWS Certified Cloud Practitioner (CLF-C02)</h4>
+                                <p class="edu-school">Amazon Web Services</p>
+                                <p class="edu-meta">Concluída em <strong>07/2026</strong></p>
+                            </li>
+                            <li class="card edu-item">
+                                <h4 class="edu-name">Bootcamp Cloud DevOps Experience</h4>
+                                <p class="edu-school">DIO</p>
+                                <p class="edu-meta">Concluído em <strong>2023</strong></p>
+                            </li>
+                            <li class="card edu-item">
+                                <h4 class="edu-name">Programa de Especialização em AWS</h4>
+                                <p class="edu-school">Cloud Treinamentos</p>
+                                <p class="edu-meta">Concluído em <strong>2022</strong></p>
+                            </li>
+                            <li class="card edu-item">
+                                <h4 class="edu-name">Linux Fundamentals</h4>
+                                <p class="edu-school">4Linux</p>
+                                <p class="edu-meta">Concluído em <strong>2022</strong></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-contact" id="contato">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="eyebrow">Contato</span>
+                    <h2 class="section-title">Vamos conversar?</h2>
+                    <p class="section-subtitle">Se você procura um profissional para Cloud, DevOps, infraestrutura ou
+                        suporte, fico à disposição para conversar.</p>
+                </div>
+                <div class="row g-4 justify-content-center">
+                    <div class="col-md-6 col-lg-4">
+                        <a class="card contact-card" href="mailto:antonioherisson@gmail.com">
+                            <span class="contact-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
+                                    <path fill="currentColor"
+                                        d="M1.5 4h21a1.5 1.5 0 0 1 1.5 1.5v13a1.5 1.5 0 0 1-1.5 1.5h-21A1.5 1.5 0 0 1 0 18.5v-13A1.5 1.5 0 0 1 1.5 4zm0 2.5v12h21v-12l-8.33 6.94a1.5 1.5 0 0 1-1.55.12L1.5 6.5zm3.66.5l6 5-6 5-.16-10z" />
+                                </svg>
+                            </span>
+                            <span class="contact-label">E-mail</span>
+                            <span class="contact-value">antonioherisson@gmail.com</span>
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <a class="card contact-card" href="https://www.linkedin.com/in/herisson-silva-7275a0187/"
+                            target="_blank" rel="noopener noreferrer">
+                            <span class="contact-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
+                                    <path fill="currentColor"
+                                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                </svg>
+                            </span>
+                            <span class="contact-label">LinkedIn</span>
+                            <span class="contact-value">/in/herisson-silva</span>
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <a class="card contact-card" href="https://github.com/HerissonS" target="_blank"
+                            rel="noopener noreferrer">
+                            <span class="contact-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
+                                    <path fill="currentColor"
+                                        d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                                </svg>
+                            </span>
+                            <span class="contact-label">GitHub</span>
+                            <span class="contact-value">/HerissonS</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="anoAtual">2026</span> Hérisson Silva · Cloud | DevOps | Infraestrutura | Suporte</p>
+            <p class="footer-meta">Desenvolvido por Hérisson Silva · Caucaia, Ceará, Brasil</p>
+        </div>
     </footer>
+
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('anoAtual').textContent = new Date().getFullYear();
+    </script>
 </body>
 
 </html>
