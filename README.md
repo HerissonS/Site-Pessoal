@@ -23,9 +23,11 @@ Modernização do projeto
         ↓
 Portfólio profissional
         ↓
-Publicação via GitHub Pages
+GitHub Pages
         ↓
-Práticas DevSecOps
+Security Pipeline
+        ↓
+CI/CD + DevSecOps
 ```
 
 **Este projeto iniciou tendo como foco a montagem de um site pessoal e foi iniciado no Bootcamp da DIO em parceria com Carrefour.**
@@ -102,24 +104,22 @@ O site está publicado através do **GitHub Pages** e pode ser acessado em:
 
 **https://herissons.github.io/Site-Pessoal/**
 
-O projeto foi preparado tecnicamente para funcionar em subdiretório do GitHub Pages:
+A publicação é automatizada pelo **GitHub Actions**: após as verificações de segurança serem aprovadas em um push para `master`, o workflow prepara e publica o site de forma automática. A fonte de publicação configurada no repositório é **GitHub Actions**.
 
-- site totalmente estático;
-- nenhuma dependência de backend, banco de dados ou processamento no servidor;
-- nenhuma credencial ou dado sensível versionado.
+O site é totalmente estático, sem dependência de backend, banco de dados ou processamento no servidor, e nenhuma credencial ou dado sensível é versionado.
 
-## DevSecOps Security Pipeline
+## CI/CD e DevSecOps
 
-O repositório conta com uma **pipeline DevSecOps de segurança** executada pelo **GitHub Actions**, utilizando o **Trivy** para análise dos arquivos do repositório e integração com o **GitHub Code Scanning**.
+O repositório conta com um **workflow de CI/CD + DevSecOps** executado pelo **GitHub Actions**. Alterações destinadas à branch `master` passam por verificações automatizadas de segurança (**security scan** + **security gate**) e, quando aprovadas em um push válido para `master`, o site é publicado automaticamente no **GitHub Pages**.
 
 - [![DevSecOps Security Pipeline](https://github.com/HerissonS/Site-Pessoal/actions/workflows/security.yml/badge.svg?branch=master)](https://github.com/HerissonS/Site-Pessoal/actions/workflows/security.yml)
 
 ### Objetivo
 
-Automatizar verificações de segurança nas alterações do repositório, separando duas responsabilidades:
+Automatizar segurança e publicação em duas etapas complementares:
 
-1. **Visibilidade** — gerar e enviar um relatório SARIF para o GitHub Code Scanning.
-2. **Controle de bloqueio (security gate)** — falhar a execução quando forem encontrados achados dentro dos critérios configurados.
+1. **Continuous Integration / Security** — executar o security scan com o Trivy, gerar resultados em SARIF para o GitHub Code Scanning e aplicar o security gate (bloqueio por severidade).
+2. **Continuous Deployment** — após aprovação do security gate em um push para `master`, preparar e publicar o site no GitHub Pages.
 
 > O workflow automatiza verificações de segurança e pode bloquear alterações que atendam aos critérios configurados. Ele **não garante** a ausência de vulnerabilidades no site.
 
@@ -132,63 +132,97 @@ O workflow `.github/workflows/security.yml` é disparado por:
 
 A branch `master` é a branch principal deste repositório.
 
-### Como funciona
+### Fluxo (Security Scan → Security Gate → Deploy)
 
 ```mermaid
 flowchart TD
-    A[Push ou Pull Request na branch master] --> B[GitHub Actions executa o workflow]
-    B --> C[Checkout do repositório]
-    C --> D[Trivy - Filesystem Scan]
-    D --> E1[vuln]
-    D --> E2[secret]
-    D --> E3[misconfig]
-    E1 --> F[SARIF trivy-results.sarif]
-    E2 --> F
-    E3 --> F
+    A[Push ou Pull Request para a branch master] --> B[GitHub Actions]
+    B --> C[Job security-scan]
+    C --> D[Checkout do repositório]
+    D --> E[Trivy - Filesystem Scan]
+    E --> S1[vuln]
+    E --> S2[secret]
+    E --> S3[misconfig]
+    S1 --> F[SARIF trivy-results.sarif]
+    S2 --> F
+    S3 --> F
     F --> G[Upload SARIF - GitHub Code Scanning]
-    D --> H[Trivy - tabela - exit-code 1]
-    H --> I{HIGH ou CRITICAL\ndentro dos critérios?}
-    I -- Sim --> J[Execução falha]
-    I -- Não --> K[Execução conclui com sucesso]
+    E --> H[Security Gate - Trivy exit-code 1]
+    H --> I{HIGH ou CRITICAL<br/>dentro dos critérios?}
+    I -- Sim --> J[Job security-scan falha - Deploy bloqueado]
+    I -- Não --> K{É push na master?}
+    K -- Não --> L[Job deploy ignorado - PR não publica]
+    K -- Sim --> M[Job deploy]
+    M --> N[Checkout + Configure GitHub Pages]
+    N --> O[Preparar artifact _site com os arquivos do site]
+    O --> P[Upload pages artifact]
+    P --> Q[Deploy GitHub Pages]
+    Q --> R[Site publicado]
 ```
 
-### Permissões
+### Jobs e permissões (menor privilégio)
 
 ```yaml
 permissions:
-  contents: read
-  security-events: write
+  contents: read            # nível do workflow: padrão mínimo para todos os jobs
+
+jobs:
+  security-scan:
+    permissions:
+      contents: read         # checkout dos arquivos para análise
+      security-events: write # upload do SARIF / GitHub Code Scanning
+
+  deploy:
+    permissions:
+      contents: read         # checkout dos arquivos do site
+      id-token: write        # autenticação OIDC para publicar no Pages
+      pages: write           # iniciar e executar o deployment do Pages
 ```
 
-- `contents: read` — necessário para o `actions/checkout@v4` disponibilizar o conteúdo do repositório no runner;
-- `security-events: write` — necessário para o `github/codeql-action/upload-sarif@v4` registrar os alertas de code scanning.
+Os jobs possuem **permissões separadas**, seguindo o princípio de menor privilégio:
 
-As permissões seguem o princípio do menor privilégio: nenhuma outra permissão é concedida a este job.
+- o job `security-scan` recebe apenas o necessário para ler o código e enviar resultados de segurança — ele **não** pode publicar o site (sem `pages: write` e `id-token: write`);
+- o job `deploy` recebe apenas o necessário para ler o código e publicar no GitHub Pages — ele **não** pode escrever eventos de segurança (sem `security-events: write`).
 
-### Scanners do Trivy
+Isso garante o isolamento entre as responsabilidades: o job de análise não publica, e o job de deploy não registra alertas de segurança.
 
-- `vuln` — identifica vulnerabilidades conhecidas em dependências e artefatos que o Trivy consiga detectar;
-- `secret` — busca padrões associados a tokens, senhas, API keys, credenciais e outras informações sensíveis;
-- `misconfig` — verifica configurações em arquivos suportados pelo Trivy (IaC, Docker, Kubernetes, entre outros).
+### Continuous Integration / Security
 
-Os achados são filtrados pelas severidades **HIGH** e **CRITICAL**. Com `ignore-unfixed: true`, somente vulnerabilidades que possuem correção disponível são consideradas (aplicável principalmente a pacotes com fix publicado).
+O job `security-scan` executa o **Trivy** no modo **Filesystem Scan** (`scan-type: fs`, `scan-ref: .`) com os scanners `vuln`, `secret` e `misconfig`:
 
-### SARIF e GitHub Code Scanning
+- `vuln` — vulnerabilidades conhecidas em dependências e artefatos detectáveis pelo Trivy;
+- `secret` — busca padrões de tokens, senhas, API keys e credenciais;
+- `misconfig` — verifica configurações em arquivos suportados (IaC, Docker, Kubernetes etc.).
 
-O primeiro scan exporta os achados no formato **SARIF** (*Static Analysis Results Interchange Format*), um padrão aberto para a troca de resultados de ferramentas de análise. O arquivo `trivy-results.sarif` é enviado ao GitHub com `upload-sarif` e passa a ser exibido como alertas na aba **Security** (Code Scanning) do repositório.
+Os achados são filtrados pelas severidades **HIGH** e **CRITICAL**, com `ignore-unfixed: true` (somente vulnerabilidades com correção publicada).
 
-O passo de upload usa `if: always()`, garantindo que o relatório seja enviado mesmo que um passo anterior falhe. A efetiva exibição dos alertas depende dos recursos de Code Scanning disponíveis na conta/repositório do GitHub.
+Depois do scan:
 
-O primeiro scan usa `exit-code: 0` justamente para não interromper o job apenas pelos achados configurados, permitindo que o relatório SARIF seja gerado e enviado.
+1. o primeiro scan gera `trivy-results.sarif` com `exit-code: 0` (sem interromper a execução) e o arquivo é enviado com `upload-sarif` ao **GitHub Code Scanning** (com `if: always()`);
+2. o segundo scan usa `format: table` e `exit-code: 1`, funcionando como **security gate**: o job falha quando existem achados dentro dos critérios configurados.
 
-### Security Gate
+### Continuous Deployment
 
-O segundo scan é executado com `format: table` e `exit-code: 1`. Diferente do primeiro scan, este converte os achados em **controle de bloqueio**: se forem encontrados achados HIGH/CRITICAL dentro dos critérios configurados, a etapa falha e o job é reprovado — o que pode bloquear o merge do PR caso haja proteção de branch configurada.
+O job `deploy` tem `needs: security-scan`, portanto só executa se o security scan terminar com sucesso. Além disso, ele só é executado em **push para `master`** (condição `github.event_name == 'push' && github.ref == 'refs/heads/master'`).
 
-```text
-Primeiro scan (SARIF) → visibilidade dos achados
-Segundo scan (tabela) → controle de bloqueio da execução
-```
+Etapas do deploy:
+
+- `actions/configure-pages` — configura o ambiente de publicação do GitHub Pages;
+- preparação do artifact com **somente os arquivos do site** (`index.html`, `css/`, `bootstrap/`, `assets/`) em `_site/`;
+- `actions/upload-pages-artifact` — envia o artifact de publicação;
+- `actions/deploy-pages` — publica o site e expõe a URL do deployment.
+
+O deploy usa o environment **`github-pages`**, com a URL exposta a partir do output oficial `page_url` da action de deploy.
+
+### Comportamento em Pull Requests e push para `master`
+
+- **Pull Request → `master`**: executa o security scan, gera o SARIF e aplica o security gate. O job `deploy` é ignorado (a condição `github.event_name == 'push'` não é atendida), portanto **um PR nunca publica o site**.
+- **Push → `master` aprovado**: security scan + security gate aprovados → job `deploy` executa → site publicado no GitHub Pages.
+- **Push → `master` reprovado**: o security gate falha o job `security-scan`; por causa do `needs: security-scan`, o job `deploy` é bloqueado (skipped) e a última versão já publicada no site permanece ativa.
+
+### Concorrência
+
+O job `deploy` define `concurrency` com o grupo `pages` e `cancel-in-progress: false`. Isso evita deployments concorrentes do GitHub Pages: se dois pushes acontecerem em sequência, o segundo aguarda o primeiro terminar antes de fazer novo deploy.
 
 ### Limitações do scan neste repositório
 
@@ -202,26 +236,24 @@ A pipeline **não** realiza: teste completo de SAST, DAST, pentest, scan da apli
 
 ### Relação com o GitHub Pages
 
-A pipeline de segurança **não** controla a publicação do site:
+A pipeline **unifica segurança e publicação** no fluxo do GitHub Pages:
 
-```text
-Pipeline DevSecOps = análise de segurança dos arquivos do repositório
-GitHub Pages      = publicação do site estático
-```
-
-A publicação via GitHub Pages é feita de forma independente, nas configurações do repositório. Este workflow não realiza deploy.
+- alterações em `master` passam pelo security scan e pelo security gate;
+- o deploy só acontece após a aprovação das verificações, em push para `master`;
+- a fonte de publicação configurada no repositório é **GitHub Actions**, e o workflow também é responsável por publicar o site.
 
 ### Conceitos (resumo)
 
-- **GitHub Actions** — plataforma de automação do GitHub. Neste projeto, executa o workflow de segurança a cada push/PR para `master`.
+- **GitHub Actions** — plataforma de automação do GitHub. Neste projeto, executa o workflow de segurança e publicação a cada push/PR para `master`.
 - **Trivy** — scanner de segurança open source, utilizado no modo **Filesystem Scan** (`scan-type: fs`, `scan-ref: .`), que analisa os arquivos do próprio repositório no runner. É adequado para este projeto estático por não exigir imagem de contêiner ou dependências externas.
 - **SARIF** — formato aberto de troca de resultados de análise, consumido pelo GitHub Code Scanning.
-- **Security Gate** — o parâmetro `exit-code: 1` no scan de tabela faz a execução falhar quando existem achados dentro dos critérios configurados.
+- **Security Gate** — o parâmetro `exit-code: 1` no scan de tabela faz a execução falhar quando existem achados dentro dos critérios configurados, bloqueando o deploy.
 
 ### Melhorias futuras (não aplicadas)
 
 - fixar (pin) as Actions por **commit SHA**, em vez de tags como `@v4`, como hardening de supply chain;
 - unificar os dois scans do Trivy em um único scan com `if: always()` no upload, reutilizando o mesmo relatório para SARIF e security gate — reduziria o tempo de execução;
+- atualizar periodicamente as versões das Actions utilizadas para manter compatibilidade com o runtime do GitHub;
 - avaliar, em momento futuro, ferramentas complementares (ex.: Dependabot e CodeQL), fora do escopo atual.
 
 ## Autor
