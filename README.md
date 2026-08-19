@@ -6,6 +6,10 @@ Site pessoal e portfólio profissional de **Antonio Herisson Silva Morais** (apr
 
 Este repositório contém um site estático que funciona como portfólio profissional de tecnologia. O site apresenta trajetória, experiência, competências, projetos, formação, certificações e formas de contato, servindo como porta de entrada para os projetos públicos no GitHub.
 
+O site está publicado através do **GitHub Pages** e pode ser acessado em:
+
+**https://herissons.github.io/Site-Pessoal/**
+
 ## Evolução do projeto
 
 A história deste projeto segue a seguinte evolução:
@@ -248,13 +252,6 @@ A pipeline **unifica segurança e publicação** no fluxo do GitHub Pages:
 - **Trivy** — scanner de segurança open source, utilizado no modo **Filesystem Scan** (`scan-type: fs`, `scan-ref: .`), que analisa os arquivos do próprio repositório no runner. É adequado para este projeto estático por não exigir imagem de contêiner ou dependências externas.
 - **SARIF** — formato aberto de troca de resultados de análise, consumido pelo GitHub Code Scanning.
 - **Security Gate** — o parâmetro `exit-code: 1` no scan de tabela faz a execução falhar quando existem achados dentro dos critérios configurados, bloqueando o deploy.
-
-### Melhorias futuras (não aplicadas)
-
-- fixar (pin) as Actions por **commit SHA**, em vez de tags como `@v4`, como hardening de supply chain;
-- unificar os dois scans do Trivy em um único scan com `if: always()` no upload, reutilizando o mesmo relatório para SARIF e security gate — reduziria o tempo de execução;
-- atualizar periodicamente as versões das Actions utilizadas para manter compatibilidade com o runtime do GitHub;
-- avaliar, em momento futuro, ferramentas complementares (ex.: Dependabot e CodeQL), fora do escopo atual.
 
 ## Autor
 
