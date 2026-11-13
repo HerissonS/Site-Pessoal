@@ -97,7 +97,7 @@ php -S localhost:8000
 
 Os projetos apresentados no site são trabalhos reais de atuação com infraestrutura, automação, CI/CD e Cloud, como:
 
-- **HSAgendamentos** — projeto freelancer com Docker Compose, Linux, Nginx, MariaDB, APIs e Trivy.
+- **HSAgendamentos** — plataforma SaaS em produção, com Docker Compose, Linux, Nginx, MariaDB, CI/CD no GitHub Actions (deploy por cliente, backup, health check e rollback automáticos), imagens assinadas com Cosign e DevSecOps (Trivy, Semgrep, SBOM).
 - **Automação de deploy com Jenkins** — pipeline CI/CD com Jenkins, GitHub, Linux e Shell Script.
 
 Novos repositórios e projetos serão adicionados à medida que forem organizados no GitHub.
@@ -258,5 +258,6 @@ A pipeline **unifica segurança e publicação** no fluxo do GitHub Pages:
 **Hérisson Silva** — Cloud | DevOps | Infraestrutura | Suporte
 
 - E-mail: antonioherisson@gmail.com
+- WhatsApp: [(85) 98659-5536](https://wa.me/5585986595536)
 - LinkedIn: [linkedin.com/in/herisson-silva-7275a0187](https://www.linkedin.com/in/herisson-silva-7275a0187/)
 - GitHub: [github.com/HerissonS](https://github.com/HerissonS)

@@ -493,6 +493,18 @@ a:hover {
     background: var(--cyan);
 }
 
+.project-card .impact-list {
+    margin: 0.75rem 0 1rem;
+}
+
+.project-card .impact-list li {
+    color: var(--dark);
+}
+
+.project-card .impact-list li::before {
+    background: var(--primary);
+}
+
 .impact-stats {
     display: flex;
     flex-direction: column;

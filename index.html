@@ -8,8 +8,27 @@
     <meta name="description"
         content="Portfólio de Hérisson Silva, profissional de TI atuante em Cloud, DevOps, Infraestrutura e Suporte. Conheça minha trajetória, competências, projetos e certificações.">
     <meta name="author" content="Hérisson Silva">
+    <meta name="theme-color" content="#0b1220">
+    <link rel="canonical" href="https://herissons.github.io/Site-Pessoal/">
 
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://herissons.github.io/Site-Pessoal/">
+    <meta property="og:image" content="https://herissons.github.io/Site-Pessoal/assets/img/herisson.png">
+    <meta name="twitter:card" content="summary">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Hérisson Silva",
+      "jobTitle": "Cloud | DevOps | Infraestrutura",
+      "url": "https://herissons.github.io/Site-Pessoal/",
+      "sameAs": [
+        "https://github.com/HerissonS",
+        "https://www.linkedin.com/in/herisson-silva-7275a0187/"
+      ],
+      "address": { "@type": "PostalAddress", "addressLocality": "Caucaia", "addressRegion": "CE", "addressCountry": "BR" }
+    }
+    </script>
     <meta property="og:locale" content="pt_BR">
     <meta property="og:title" content="Hérisson Silva | Cloud, DevOps e Infraestrutura">
     <meta property="og:description"
@@ -69,6 +88,7 @@
                             <li>Zabbix</li>
                             <li>Grafana</li>
                             <li>CI/CD</li>
+                            <li>GitHub Actions</li>
                         </ul>
                         <div class="hero-actions">
                             <a href="#projetos" class="btn btn-primary btn-hero">Ver projetos</a>
@@ -128,10 +148,11 @@
                             <p>
                                 Entre os projetos que mais representam essa evolução estão a implantação de Zabbix e
                                 Grafana para monitoramento e observabilidade, o <strong>HSAgendamentos</strong> —
-                                projeto freelancer desenvolvido e operado com Docker, Nginx, MariaDB e APIs — e a
+                                plataforma SaaS que projetei e opero em produção, com pipeline CI/CD no GitHub Actions
+                                (backup, health check e rollback automáticos, imagens assinadas com Cosign) — e a
                                 implantação de Jenkins para automatizar o deploy de uma aplicação a partir do GitHub.
-                                Também venho aplicando práticas de segurança e análise de vulnerabilidades com
-                                ferramentas como Trivy.
+                                Também aplico DevSecOps no dia a dia, com Trivy, Semgrep, SBOM e gestão de
+                                vulnerabilidades.
                             </p>
                             <p>
                                 Sou formado em Redes de Computadores, pós-graduado em Cloud Computing e atualmente em
@@ -404,10 +425,12 @@
                                 <li>Docker</li>
                                 <li>Docker Compose</li>
                                 <li>CI/CD</li>
+                                <li>GitHub Actions</li>
                                 <li>Git</li>
                                 <li>GitHub</li>
                                 <li>Observabilidade</li>
                                 <li>Zabbix</li>
+                                <li>DevSecOps (Trivy, Semgrep)</li>
                             </ul>
                         </div>
                     </div>
@@ -445,24 +468,42 @@
                     <div class="col-lg-6">
                         <article class="card project-card h-100">
                             <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-2">
-                                <span class="project-category">Projeto Freelancer</span>
+                                <span class="project-category">Projeto Freelancer - Desenvolvimento e Implantação de SaaS</span>
                                 <span class="project-year">Atual</span>
                             </div>
                             <h3 class="project-title">HSAgendamentos</h3>
                             <p class="project-description">
-                                Projeto freelancer no qual atuei no projeto e na implementação do ambiente, administração
-                                de containers e serviços, deploy e atualização, com Nginx na infraestrutura e base em
-                                Docker Compose e MariaDB. Incluiu integração com APIs, monitoramento, troubleshooting e
-                                resolução de incidentes, além de análise de vulnerabilidades com Trivy.
+                                Plataforma de agendamentos (SaaS) com integração a WhatsApp, Google Agenda e pagamentos
+                                recorrentes, que projetei, implantei e opero em produção para clientes reais. Responsável
+                                pela infraestrutura em Linux com Docker Compose, Nginx e MariaDB, e por um pipeline
+                                completo de CI/CD com GitHub Actions: deploy por ambiente/cliente com backup automático
+                                do banco, health check e rollback automático, imagens imutáveis publicadas no GHCR e
+                                assinadas com Cosign (keyless), relatórios e alertas por e-mail.
                             </p>
+                            <ul class="impact-list" aria-label="Destaques de DevOps e segurança do HSAgendamentos">
+                                <li>Pipeline DevSecOps: Semgrep (SAST), Trivy (código e imagens), SBOM CycloneDX e
+                                    gestão de alertas do Dependabot</li>
+                                <li>Deploy seguro: tags imutáveis por commit, backup preventivo, rollback automático e
+                                    sincronização não destrutiva de variáveis de ambiente</li>
+                                <li>Operação multi-cliente com GitHub Environments, versionamento semântico e
+                                    documentação técnica e comercial</li>
+                            </ul>
                             <ul class="job-tags" aria-label="Tecnologias do projeto HSAgendamentos">
                                 <li>Docker</li>
                                 <li>Docker Compose</li>
+                                <li>GitHub Actions</li>
+                                <li>CI/CD</li>
                                 <li>Linux</li>
                                 <li>Nginx</li>
                                 <li>MariaDB</li>
-                                <li>APIs</li>
+                                <li>Laravel</li>
+                                <li>Vue</li>
+                                <li>Evolution API</li>
+                                <li>GHCR</li>
+                                <li>Cosign</li>
                                 <li>Trivy</li>
+                                <li>Semgrep</li>
+                                <li>SBOM</li>
                             </ul>
                             <div class="project-links" aria-label="Links do projeto HSAgendamentos"></div>
                         </article>
@@ -559,7 +600,20 @@
                         suporte, fico à disposição para conversar.</p>
                 </div>
                 <div class="row g-4 justify-content-center">
-                    <div class="col-md-6 col-lg-4">
+                    <div class="col-md-6 col-lg-3">
+                        <a class="card contact-card" href="https://wa.me/5585986595536" target="_blank"
+                            rel="noopener noreferrer">
+                            <span class="contact-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
+                                    <path fill="currentColor"
+                                        d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.94.95-3.48-.22-.36a9.43 9.43 0 1 1 7.98 4.41zM12.05 0A11.9 11.9 0 0 0 1.7 17.8L0 24l6.35-1.66A11.9 11.9 0 1 0 12.05 0z" />
+                                </svg>
+                            </span>
+                            <span class="contact-label">WhatsApp</span>
+                            <span class="contact-value">(85) 98659-5536</span>
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
                         <a class="card contact-card" href="mailto:antonioherisson@gmail.com">
                             <span class="contact-icon" aria-hidden="true">
                                 <svg viewBox="0 0 24 24">
@@ -571,7 +625,7 @@
                             <span class="contact-value">antonioherisson@gmail.com</span>
                         </a>
                     </div>
-                    <div class="col-md-6 col-lg-4">
+                    <div class="col-md-6 col-lg-3">
                         <a class="card contact-card" href="https://www.linkedin.com/in/herisson-silva-7275a0187/"
                             target="_blank" rel="noopener noreferrer">
                             <span class="contact-icon" aria-hidden="true">
@@ -584,7 +638,7 @@
                             <span class="contact-value">/in/herisson-silva</span>
                         </a>
                     </div>
-                    <div class="col-md-6 col-lg-4">
+                    <div class="col-md-6 col-lg-3">
                         <a class="card contact-card" href="https://github.com/HerissonS" target="_blank"
                             rel="noopener noreferrer">
                             <span class="contact-icon" aria-hidden="true">
